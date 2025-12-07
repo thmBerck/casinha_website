@@ -116,6 +116,59 @@
             .nav-links { display: none; } /* Mobiel menu verbergen voor eenvoud */
             nav { justify-content: center; }
         }
+		
+		/* --- MOBIEL --- */
+        @media (max-width: 768px) {
+            /* De navigatiebalk groter maken zodat alles past */
+            nav {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+
+            /* De links weer zichtbaar maken en centreren */
+            .nav-links {
+                display: flex; 
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+                margin-top: 15px;
+                width: 100%;
+            }
+
+            /* De taalknop apart stylen op mobiel */
+            .nav-links li:last-child {
+                border-left: none !important; /* Het verticale streepje weghalen */
+                padding-left: 0 !important;
+                margin-left: 0 !important;
+                
+                /* Een kader eromheen zodat het opvalt */
+                width: 100%;
+                text-align: center;
+                border-top: 1px solid #eee;
+                padding-top: 10px;
+                margin-top: 5px;
+            }
+
+            /* Grid aanpassingen */
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            /* Ruimte maken voor de vaste header */
+            body {
+                padding-top: 140px; /* Zorgt dat de tekst niet achter het menu verdwijnt */
+            }
+            header {
+                position: fixed;
+                width: 100%;
+                top: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -235,7 +288,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2023 Casinha - Tous droits réservés.</p>
+        <p>&copy; 2025 Casinha - Tous droits réservés.</p>
     </footer>
 
 </body>
