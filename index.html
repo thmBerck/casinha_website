@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,21 @@
     <style>
         /* --- ALGEMENE STIJL --- */
         :root {
-            --primary-color: #333333; /* Donkergrijze tekst */
-            --accent-color: #FF6B6B; /* Fel Koraal/Rood (voor de felle kleuren vibe) */
-            --secondary-color: #4ECDC4; /* Fel Turqoise */
+            --primary-color: #333333;
+            /* Donkergrijze tekst */
+            --accent-color: #FF6B6B;
+            /* Fel Koraal/Rood (voor de felle kleuren vibe) */
+            --secondary-color: #4ECDC4;
+            /* Fel Turqoise */
             --bg-light: #f9f9f9;
             --white: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            /* Makes the scrolling look nice and smooth */
+            scroll-padding-top: 90px;
+            /* 70px header + 20px extra space */
         }
 
         body {
@@ -22,7 +33,9 @@
             line-height: 1.6;
         }
 
-        h1, h2, h3 {
+        h1,
+        h2,
+        h3 {
             margin-bottom: 1rem;
         }
 
@@ -45,7 +58,7 @@
         /* --- NAVIGATIE --- */
         header {
             background: var(--white);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -94,12 +107,13 @@
         /* --- HERO SECTIE --- */
         .hero {
             background-color: var(--bg-light);
-            height: 80vh; /* 80% van de schermhoogte */
+            height: 80vh;
+            /* 80% van de schermhoogte */
             display: flex;
             align-items: center;
             text-align: center;
             justify-content: center;
-            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1672122816795-49ff5cbc75e8?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1672122816795-49ff5cbc75e8?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
             background-size: cover;
             background-position: center;
             color: var(--white);
@@ -107,13 +121,13 @@
 
         .hero-content h1 {
             font-size: 3rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .hero-content p {
             font-size: 1.2rem;
             margin-bottom: 2rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
 
         .btn {
@@ -171,7 +185,7 @@
             background: var(--white);
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             text-align: center;
             transition: transform 0.3s;
         }
@@ -243,6 +257,7 @@
 
         /* --- MOBIEL --- */
         @media (max-width: 768px) {
+
             /* De navigatiebalk groter maken zodat alles past */
             nav {
                 flex-direction: column;
@@ -250,9 +265,14 @@
                 padding: 15px 0;
             }
 
+            html {
+                scroll-padding-top: 240px;
+                /* A large value to account for the tall menu */
+            }
+
             /* De links weer zichtbaar maken en centreren */
             .nav-links {
-                display: flex; 
+                display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
                 gap: 15px;
@@ -262,10 +282,11 @@
 
             /* De taalknop apart stylen op mobiel */
             .nav-links li:last-child {
-                border-left: none !important; /* Het verticale streepje weghalen */
+                border-left: none !important;
+                /* Het verticale streepje weghalen */
                 padding-left: 0 !important;
                 margin-left: 0 !important;
-                
+
                 /* Een kader eromheen zodat het opvalt */
                 width: 100%;
                 text-align: center;
@@ -282,11 +303,13 @@
             .hero-content h1 {
                 font-size: 2rem;
             }
-            
+
             /* Ruimte maken voor de vaste header */
             body {
-                padding-top: 140px; /* Zorgt dat de tekst niet achter het menu verdwijnt */
+                padding-top: 140px;
+                /* Zorgt dat de tekst niet achter het menu verdwijnt */
             }
+
             header {
                 position: fixed;
                 width: 100%;
@@ -295,31 +318,33 @@
         }
     </style>
 </head>
+
 <body>
 
     <header>
         <div class="container">
             <nav>
-				<div class="logo">CASINHA<span>.</span></div>
-				<ul class="nav-links">
-					<li><a href="#home">Home</a></li>
-					<li><a href="#over-ons">Over Ons</a></li>
-					<li><a href="#aanbod">Aanbod</a></li>
-					<li><a href="#realisaties">Realisaties</a></li>
-					<li><a href="#contact">Contact</a></li>
-					<li style="border-left: 1px solid #ccc; padding-left: 20px; margin-left: 10px;">
-						<a href="index.html" style="font-weight: bold; color: var(--accent-color);">NL</a> | 
-						<a href="index-fr.html">FR</a>
-					</li>
-				</ul>
-			</nav>
+                <div class="logo">CASINHA<span>.</span></div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#over-ons">Over Ons</a></li>
+                    <li><a href="#aanbod">Aanbod</a></li>
+                    <li><a href="#realisaties">Realisaties</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li style="border-left: 1px solid #ccc; padding-left: 20px; margin-left: 10px;">
+                        <a href="index.html" style="font-weight: bold; color: var(--accent-color);">NL</a> |
+                        <a href="index-fr.html">FR</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </header>
 
     <section id="home" class="hero">
         <div class="container hero-content">
             <h1>Sfeer en kwaliteit in elk detail</h1>
-            <p>Uw specialist in gordijnen en raamdecoratie op maat. <br>Van advies tot professionele installatie bij u thuis.</p>
+            <p>Uw specialist in gordijnen en raamdecoratie op maat. <br>Van advies tot professionele installatie bij u
+                thuis.</p>
             <a href="#contact" class="btn">Maak een afspraak</a>
         </div>
     </section>
@@ -329,12 +354,17 @@
             <h2 class="section-title">Over Casinha</h2>
             <div class="about-grid">
                 <div>
-                    <p>Welkom bij <strong>Casinha</strong>. Wij geloven dat gordijnen meer zijn dan alleen raamdecoratie; ze bepalen de sfeer en warmte van uw woning. </p>
-                    <p>Met jarenlange ervaring in de branche staat Casinha voor vakmanschap en persoonlijke service. Wij komen graag bij u langs om de situatie ter plaatse te bekijken, alles nauwkeurig op te meten en u te adviseren over de beste stoffen en systemen voor uw interieur.</p>
-                    <p>Of u nu op zoek bent naar een strakke moderne look of een klassieke warme uitstraling, wij zorgen voor het perfecte plaatje, inclusief vakkundige montage.</p>
+                    <p>Welkom bij <strong>Casinha</strong>. Wij geloven dat gordijnen meer zijn dan alleen
+                        raamdecoratie; ze bepalen de sfeer en warmte van uw woning. </p>
+                    <p>Met jarenlange ervaring in de branche staat Casinha voor vakmanschap en persoonlijke service. Wij
+                        komen graag bij u langs om de situatie ter plaatse te bekijken, alles nauwkeurig op te meten en
+                        u te adviseren over de beste stoffen en systemen voor uw interieur.</p>
+                    <p>Of u nu op zoek bent naar een strakke moderne look of een klassieke warme uitstraling, wij zorgen
+                        voor het perfecte plaatje, inclusief vakkundige montage.</p>
                 </div>
                 <div>
-                    <img src="https://images.unsplash.com/photo-1570368512655-6e062026acf4?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Stofstalen en meetlint">
+                    <img src="https://images.unsplash.com/photo-1570368512655-6e062026acf4?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="Stofstalen en meetlint">
                 </div>
             </div>
         </div>
@@ -343,8 +373,9 @@
     <section id="aanbod" style="background-color: var(--bg-light);">
         <div class="container">
             <h2 class="section-title">Ons Aanbod</h2>
-            <p style="text-align: center; margin-bottom: 30px;">Wij leveren en plaatsen alles op het gebied van raamdecoratie.</p>
-            
+            <p style="text-align: center; margin-bottom: 30px;">Wij leveren en plaatsen alles op het gebied van
+                raamdecoratie.</p>
+
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">✂️</div>
@@ -374,16 +405,19 @@
         <div class="container">
             <h2 class="section-title">Realisaties</h2>
             <p style="text-align: center; margin-bottom: 30px;">Een greep uit onze projecten.</p>
-            
+
             <div class="portfolio-grid">
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Gordijnen woonkamer">
+                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Gordijnen woonkamer">
                 </div>
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Witte gordijnen slaapkamer">
+                    <img src="https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Witte gordijnen slaapkamer">
                 </div>
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1615873968403-89e068629265?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Moderne jaloezieën">
+                    <img src="https://images.unsplash.com/photo-1615873968403-89e068629265?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Moderne jaloezieën">
                 </div>
             </div>
         </div>
@@ -393,7 +427,7 @@
         <div class="container">
             <h2 class="section-title" style="color: var(--white);">Contacteer Ons</h2>
             <p>Interesse in een vrijblijvende offerte of advies aan huis? Neem contact op.</p>
-            
+
             <div class="contact-info">
                 <div class="contact-item">
                     📞 Bel ons direct: <br>
@@ -404,9 +438,10 @@
                     <a href="mailto:casinha@live.be" class="contact-link">casinha@live.be</a>
                 </div>
             </div>
-            
+
             <div style="margin-top: 40px;">
-                <a href="mailto:casinha@live.be" class="btn" style="background: var(--white); color: var(--accent-color);">Stuur een bericht</a>
+                <a href="mailto:casinha@live.be" class="btn"
+                    style="background: var(--white); color: var(--accent-color);">Stuur een bericht</a>
             </div>
         </div>
     </section>
@@ -416,4 +451,5 @@
     </footer>
 
 </body>
+
 </html>

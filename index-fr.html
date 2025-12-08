@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,18 @@
     <style>
         /* --- ZELFDE STIJL ALS DE NL VERSIE --- */
         :root {
-            --primary-color: #333333; 
-            --accent-color: #FF6B6B; 
-            --secondary-color: #4ECDC4; 
+            --primary-color: #333333;
+            --accent-color: #FF6B6B;
+            --secondary-color: #4ECDC4;
             --bg-light: #f9f9f9;
             --white: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            /* Makes the scrolling look nice and smooth */
+            scroll-padding-top: 90px;
+            /* 70px header + 20px extra space */
         }
 
         body {
@@ -22,22 +30,50 @@
             line-height: 1.6;
         }
 
-        h1, h2, h3 { margin-bottom: 1rem; }
-        a { text-decoration: none; color: inherit; }
-        ul { list-style: none; padding: 0; }
-        img { max-width: 100%; display: block; border-radius: 8px; }
+        h1,
+        h2,
+        h3 {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            border-radius: 8px;
+        }
 
         /* NAVIGATIE */
         header {
             background: var(--white);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-        nav { display: flex; justify-content: space-between; align-items: center; height: 70px; }
-        
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
@@ -45,11 +81,25 @@
             border: 2px solid var(--primary-color);
             padding: 5px 10px;
         }
-        .logo span { color: var(--accent-color); }
-        
-        .nav-links { display: flex; gap: 20px; align-items: center; }
-        .nav-links a { font-weight: 500; transition: color 0.3s; }
-        .nav-links a:hover { color: var(--accent-color); }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
 
         /* HERO */
         .hero {
@@ -59,14 +109,23 @@
             align-items: center;
             text-align: center;
             justify-content: center;
-            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             color: var(--white);
         }
-        .hero-content h1 { font-size: 3rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-        .hero-content p { font-size: 1.2rem; margin-bottom: 2rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
-        
+
+        .hero-content h1 {
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
         .btn {
             background-color: var(--accent-color);
             color: var(--white);
@@ -76,49 +135,142 @@
             transition: transform 0.2s, background 0.3s;
             display: inline-block;
         }
-        .btn:hover { transform: scale(1.05); background-color: #e55a5a; }
+
+        .btn:hover {
+            transform: scale(1.05);
+            background-color: #e55a5a;
+        }
 
         /* SECTIES */
-        section { padding: 60px 0; }
-        .section-title { text-align: center; font-size: 2rem; margin-bottom: 40px; position: relative; }
-        .section-title::after {
-            content: ''; display: block; width: 60px; height: 3px; background: var(--secondary-color); margin: 10px auto 0;
+        section {
+            padding: 60px 0;
         }
 
-        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-        
-        /* SERVICES */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .service-card {
-            background: var(--white); padding: 20px; border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05); text-align: center; transition: transform 0.3s;
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            position: relative;
         }
-        .service-card:hover { transform: translateY(-5px); }
-        .service-icon { font-size: 2rem; margin-bottom: 10px; color: var(--secondary-color); }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary-color);
+            margin: 10px auto 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        /* SERVICES */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
 
         /* PORTFOLIO */
-        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
-        .portfolio-item { position: relative; overflow: hidden; border-radius: 8px; height: 250px; }
-        .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
-        .portfolio-item:hover img { transform: scale(1.1); }
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            height: 250px;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
 
         /* CONTACT */
-        .contact-section { background-color: var(--primary-color); color: var(--white); text-align: center; }
-        .contact-info { font-size: 1.2rem; margin-top: 20px; }
-        .contact-item { margin: 15px 0; }
-        .contact-link { color: var(--secondary-color); font-weight: bold; }
-
-        footer { text-align: center; padding: 20px; background: #222; color: #777; font-size: 0.9rem; }
-
-        @media (max-width: 768px) {
-            .about-grid { grid-template-columns: 1fr; }
-            .hero-content h1 { font-size: 2rem; }
-            .nav-links { display: none; } /* Mobiel menu verbergen voor eenvoud */
-            nav { justify-content: center; }
+        .contact-section {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
         }
-		
-		/* --- MOBIEL --- */
+
+        .contact-info {
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            margin: 15px 0;
+        }
+
+        .contact-link {
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #222;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
         @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            /* Mobiel menu verbergen voor eenvoud */
+            nav {
+                justify-content: center;
+            }
+        }
+
+        /* --- MOBIEL --- */
+        @media (max-width: 768px) {
+
             /* De navigatiebalk groter maken zodat alles past */
             nav {
                 flex-direction: column;
@@ -126,9 +278,15 @@
                 padding: 15px 0;
             }
 
+            /* Ervoor zorgen dat de header niet over de titels komt wanneer je op een HREF drukt. */
+            html {
+                scroll-padding-top: 240px;
+                /* A large value to account for the tall menu */
+            }
+
             /* De links weer zichtbaar maken en centreren */
             .nav-links {
-                display: flex; 
+                display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
                 gap: 15px;
@@ -138,10 +296,11 @@
 
             /* De taalknop apart stylen op mobiel */
             .nav-links li:last-child {
-                border-left: none !important; /* Het verticale streepje weghalen */
+                border-left: none !important;
+                /* Het verticale streepje weghalen */
                 padding-left: 0 !important;
                 margin-left: 0 !important;
-                
+
                 /* Een kader eromheen zodat het opvalt */
                 width: 100%;
                 text-align: center;
@@ -158,11 +317,13 @@
             .hero-content h1 {
                 font-size: 2rem;
             }
-            
+
             /* Ruimte maken voor de vaste header */
             body {
-                padding-top: 140px; /* Zorgt dat de tekst niet achter het menu verdwijnt */
+                padding-top: 140px;
+                /* Zorgt dat de tekst niet achter het menu verdwijnt */
             }
+
             header {
                 position: fixed;
                 width: 100%;
@@ -171,6 +332,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <header>
@@ -184,7 +346,7 @@
                     <li><a href="#realisations">Réalisations</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li style="border-left: 1px solid #ccc; padding-left: 20px; margin-left: 10px;">
-                        <a href="index.html">NL</a> | 
+                        <a href="index.html">NL</a> |
                         <a href="index-fr.html" style="font-weight: bold; color: var(--accent-color);">FR</a>
                     </li>
                 </ul>
@@ -195,7 +357,8 @@
     <section id="accueil" class="hero">
         <div class="container hero-content">
             <h1>Ambiance et qualité dans les moindres détails</h1>
-            <p>Votre spécialiste en rideaux et décoration de fenêtres sur mesure. <br>Du conseil à l'installation professionnelle à domicile.</p>
+            <p>Votre spécialiste en rideaux et décoration de fenêtres sur mesure. <br>Du conseil à l'installation
+                professionnelle à domicile.</p>
             <a href="#contact" class="btn">Prendre rendez-vous</a>
         </div>
     </section>
@@ -205,12 +368,18 @@
             <h2 class="section-title">À propos de Casinha</h2>
             <div class="about-grid">
                 <div>
-                    <p>Bienvenue chez <strong>Casinha</strong>. Nous croyons que les rideaux sont plus qu'une simple décoration de fenêtre ; ils déterminent l'atmosphère et la chaleur de votre maison.</p>
-                    <p>Fort de plusieurs années d'expérience dans le secteur, Casinha est synonyme de savoir-faire et de service personnalisé. Nous nous déplaçons avec plaisir pour évaluer la situation sur place, prendre les mesures avec précision et vous conseiller sur les meilleurs tissus et systèmes pour votre intérieur.</p>
-                    <p>Que vous recherchiez un look moderne et épuré ou une ambiance classique et chaleureuse, nous assurons un résultat parfait, y compris le montage professionnel.</p>
+                    <p>Bienvenue chez <strong>Casinha</strong>. Nous croyons que les rideaux sont plus qu'une simple
+                        décoration de fenêtre ; ils déterminent l'atmosphère et la chaleur de votre maison.</p>
+                    <p>Fort de plusieurs années d'expérience dans le secteur, Casinha est synonyme de savoir-faire et de
+                        service personnalisé. Nous nous déplaçons avec plaisir pour évaluer la situation sur place,
+                        prendre les mesures avec précision et vous conseiller sur les meilleurs tissus et systèmes pour
+                        votre intérieur.</p>
+                    <p>Que vous recherchiez un look moderne et épuré ou une ambiance classique et chaleureuse, nous
+                        assurons un résultat parfait, y compris le montage professionnel.</p>
                 </div>
                 <div>
-                    <img src="https://images.unsplash.com/photo-1570368512655-6e062026acf4?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Échantillons de tissus">
+                    <img src="https://images.unsplash.com/photo-1570368512655-6e062026acf4?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="Échantillons de tissus">
                 </div>
             </div>
         </div>
@@ -219,8 +388,9 @@
     <section id="services" style="background-color: var(--bg-light);">
         <div class="container">
             <h2 class="section-title">Nos Services</h2>
-            <p style="text-align: center; margin-bottom: 30px;">Nous fournissons et installons tout dans le domaine de la décoration de fenêtres.</p>
-            
+            <p style="text-align: center; margin-bottom: 30px;">Nous fournissons et installons tout dans le domaine de
+                la décoration de fenêtres.</p>
+
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">✂️</div>
@@ -240,7 +410,8 @@
                 <div class="service-card">
                     <div class="service-icon">🔨</div>
                     <h3>Installation</h3>
-                    <p>Nous nous occupons des rails, des tringles et d'un montage parfait à domicile. Aucun souci pour vous.</p>
+                    <p>Nous nous occupons des rails, des tringles et d'un montage parfait à domicile. Aucun souci pour
+                        vous.</p>
                 </div>
             </div>
         </div>
@@ -250,16 +421,19 @@
         <div class="container">
             <h2 class="section-title">Réalisations</h2>
             <p style="text-align: center; margin-bottom: 30px;">Quelques-uns de nos projets.</p>
-            
+
             <div class="portfolio-grid">
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Rideaux salon">
+                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Rideaux salon">
                 </div>
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Rideaux blancs chambre">
+                    <img src="https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Rideaux blancs chambre">
                 </div>
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1615873968403-89e068629265?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Stores modernes">
+                    <img src="https://images.unsplash.com/photo-1615873968403-89e068629265?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Stores modernes">
                 </div>
             </div>
         </div>
@@ -269,7 +443,7 @@
         <div class="container">
             <h2 class="section-title" style="color: var(--white);">Contactez-nous</h2>
             <p>Intéressé par un devis gratuit ou des conseils à domicile ? Contactez-nous.</p>
-            
+
             <div class="contact-info">
                 <div class="contact-item">
                     📞 Appelez-nous directement : <br>
@@ -280,9 +454,10 @@
                     <a href="mailto:casinha@live.be" class="contact-link">casinha@live.be</a>
                 </div>
             </div>
-            
+
             <div style="margin-top: 40px;">
-                <a href="mailto:casinha@live.be" class="btn" style="background: var(--white); color: var(--accent-color);">Envoyer un message</a>
+                <a href="mailto:casinha@live.be" class="btn"
+                    style="background: var(--white); color: var(--accent-color);">Envoyer un message</a>
             </div>
         </div>
     </section>
@@ -292,4 +467,5 @@
     </footer>
 
 </body>
+
 </html>
